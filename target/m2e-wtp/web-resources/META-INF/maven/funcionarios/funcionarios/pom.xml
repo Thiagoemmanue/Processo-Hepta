@@ -61,6 +61,20 @@
 			<version>2.25.1</version>
 		</dependency>
 
+		<!-- Tomcat 11+ não tem as libs abaixo -->
+		<dependency>
+			<groupId>jakarta.xml.bind</groupId>
+			<artifactId>jakarta.xml.bind-api</artifactId>
+			<version>2.3.2</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-runtime</artifactId>
+			<version>2.3.2</version>
+		</dependency>
+
 		<!-- Junit -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>

@@ -25,83 +25,94 @@ import com.hepta.funcionarios.persistence.FuncionarioDAO;
 @Path("/funcionarios")
 public class FuncionarioService {
 
-	@Context
-	private HttpServletRequest request;
+    @Context
+    private HttpServletRequest request;
 
-	@Context
-	private HttpServletResponse response;
+    @Context
+    private HttpServletResponse response;
 
-	private FuncionarioDAO dao;
+    private FuncionarioDAO dao;
 
-	public FuncionarioService() {
-		dao = new FuncionarioDAO();
-	}
+    public FuncionarioService() {
+        dao = new FuncionarioDAO();
+    }
 
-	protected void setRequest(HttpServletRequest request) {
-		this.request = request;
-	}
+    protected void setRequest(HttpServletRequest request) {
+        this.request = request;
+    }
 
-	/**
-	 * Adiciona novo Funcionario
-	 * 
-	 * @param Funcionario: Novo Funcionario
-	 * @return response 200 (OK) - Conseguiu adicionar
-	 */
-	@Path("/")
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	@POST
-	public Response FuncionarioCreate(Funcionario Funcionario) {
-		return Response.status(Status.NOT_IMPLEMENTED).build();
-	}
+    /**
+     * Adiciona novo Funcionario
+     * 
+     * @param Funcionario: Novo Funcionario
+     * @return response 200 (OK) - Conseguiu adicionar
+     */
+    @Path("/")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @POST
+    public Response FuncionarioCreate(Funcionario Funcionario) {
+        return Response.status(Status.NOT_IMPLEMENTED).build();
+    }
 
-	/**
-	 * Lista todos os Funcionarios
-	 * 
-	 * @return response 200 (OK) - Conseguiu listar
-	 */
-	@Path("/")
-	@Produces(MediaType.APPLICATION_JSON)
-	@GET
-	public Response FuncionarioRead() {
-		List<Funcionario> Funcionarios = new ArrayList<>();
-		try {
-			Funcionarios = dao.getAll();
-		} catch (Exception e) {
-			return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao buscar Funcionarios").build();
-		}
+    /**
+     * Lista todos os Funcionarios
+     * 
+     * @return response 200 (OK) - Conseguiu listar
+     */
+    @Path("/")
+    @Produces(MediaType.APPLICATION_JSON)
+    @GET
+    public Response FuncionarioRead() {
+        List<Funcionario> Funcionarios = new ArrayList<>();
+        try {
+            Funcionarios = dao.getAll();
+        } catch (Exception e) {
+            return Response.status(Status.INTERNAL_SERVER_ERROR).entity("Erro ao buscar Funcionarios").build();
+        }
 
-		GenericEntity<List<Funcionario>> entity = new GenericEntity<List<Funcionario>>(Funcionarios) {
-		};
-		return Response.status(Status.OK).entity(entity).build();
-	}
+        GenericEntity<List<Funcionario>> entity = new GenericEntity<List<Funcionario>>(Funcionarios) {
+        };
+        return Response.status(Status.OK).entity(entity).build();
+    }
 
-	/**
-	 * Atualiza um Funcionario
-	 * 
-	 * @param id:          id do Funcionario
-	 * @param Funcionario: Funcionario atualizado
-	 * @return response 200 (OK) - Conseguiu atualizar
-	 */
-	@Path("/{id}")
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	@PUT
-	public Response FuncionarioUpdate(@PathParam("id") Integer id, Funcionario Funcionario) {
-		return Response.status(Status.NOT_IMPLEMENTED).build();
-	}
+    /**
+     * Atualiza um Funcionario
+     * 
+     * @param id:          id do Funcionario
+     * @param Funcionario: Funcionario atualizado
+     * @return response 200 (OK) - Conseguiu atualizar
+     */
+    @Path("/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @PUT
+    public Response FuncionarioUpdate(@PathParam("id") Integer id, Funcionario Funcionario) {
+        return Response.status(Status.NOT_IMPLEMENTED).build();
+    }
 
-	/**
-	 * Remove um Funcionario
-	 * 
-	 * @param id: id do Funcionario
-	 * @return response 200 (OK) - Conseguiu remover
-	 */
-	@Path("/{id}")
-	@Produces(MediaType.APPLICATION_JSON)
-	@DELETE
-	public Response FuncionarioDelete(@PathParam("id") Integer id) {
-		return Response.status(Status.NOT_IMPLEMENTED).build();
-	}
+    /**
+     * Remove um Funcionario
+     * 
+     * @param id: id do Funcionario
+     * @return response 200 (OK) - Conseguiu remover
+     */
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @DELETE
+    public Response FuncionarioDelete(@PathParam("id") Integer id) {
+        return Response.status(Status.NOT_IMPLEMENTED).build();
+    }
+
+    /**
+     * Métodos simples apenas para testar o REST
+     * @return
+     */
+    @Path("/teste")
+    @Produces(MediaType.TEXT_PLAIN)
+    @GET
+    public String TesteJersey() {
+        return "Funcionando.";
+    }
 
 }

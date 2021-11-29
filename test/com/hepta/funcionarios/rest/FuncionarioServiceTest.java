@@ -11,6 +11,7 @@ class FuncionarioServiceTest {
 	static void setUpBeforeClass() throws Exception {
 	}
 	
+	
 	@Test
 	void testFuncionarioRead() {
 		fail("Not yet implemented");
