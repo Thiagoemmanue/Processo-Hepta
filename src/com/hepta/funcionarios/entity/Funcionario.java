@@ -20,7 +20,7 @@ public class Funcionario implements Serializable {
 	@Column(name = "ID_FUNCIONARIO")
 	private Integer id;
 
-	@Column(name = "NOME")
+	@Column(name = "NOME COMPLETO")
 	private String nome;
 
 	@ManyToOne
