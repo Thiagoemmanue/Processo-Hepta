@@ -30,7 +30,7 @@ public class Funcionario implements Serializable {
 	@Column(name = "NU_SALARIO")
 	private Double salario;
 
-	@Column(name = "DS_EMAIL")
+	@Column(name = "DS_ ENDEREÇO EMAIL")
 	private String email;
 
 	@Column(name = "NU_IDADE")
